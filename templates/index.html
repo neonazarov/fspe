@@ -5,7 +5,16 @@
     <title>Title</title>
 </head>
 <body>
-
-
+<form>
+    <input value="{{ request.GET.q }}" type="text" name="q"> <br>
+    <button type="submit">Search</button>
+</form>
+<ul>
+    {% for i in data %}
+        <li>
+            <a href="/books/{{ i.pk }}/">{{ i.title }}</a> | {{ i.author.name }}
+        </li>
+    {% endfor %}
+</ul>
 </body>
 </html>
